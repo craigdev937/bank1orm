@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node16",
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "outDir": "./dist/",
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "module": "NodeNext",
+        "target": "ES2023",
+        "lib": ["ESNext"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "exclude": ["node_modules"],
+    "include": ["src"]
+}
+
+
+
