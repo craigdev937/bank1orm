@@ -5,6 +5,7 @@ import helmet from "helmet";
 import logger from "morgan";
 import { ERR } from "./middleware/midError";
 import { clientRt } from "./routes/ClientRt";
+import { bankRt } from "./routes/BankerRt";
 import { dBase } from "./db/database";
 
 (async () => {
@@ -20,7 +21,7 @@ import { dBase } from "./db/database";
         res.header("Access-Control-Allow-Headers",
             "Origin, X-Requested-With, Content-Type, Accept, Authorization");
         if (req.method === "OPTIONS") {
-            res.header("Accell-Control-Allow-Methods", 
+            res.header("Access-Control-Allow-Methods", 
                 "POST, GET, PUT, PATCH, DELETE");
             res.status(200).json({ "status message": "OK" });
         }
@@ -31,6 +32,7 @@ import { dBase } from "./db/database";
     app.use(express.json());
     app.use(logger("dev"));
     app.use("/api/client", clientRt);
+    app.use("/api/bank", bankRt);
     app.use(ERR.notFound);
     app.use(ERR.errHandler);
     const port = process.env.PORT || 9000;

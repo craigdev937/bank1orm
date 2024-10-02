@@ -1,18 +1,18 @@
 import express from "express";
-import { Client } from "../models/Client";
+import { Banker } from "../models/Banker";
 
-class ClientClass {
+class BankerClass {
     Create: express.Handler = async (req, res, next) => {
         try {
-            const client = Client.create({
+            const banker = Banker.create({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
                 card_number: req.body.card_number,
-                balance: req.body.balance
+                employee_number: req.body.employee_number
             });
-            await client.save();
-            res.status(200).json(client);
+            await banker.save();
+            res.status(200).json(banker);
         } catch (error) {
             res.status(500).json(res.statusMessage);
             next(error);
@@ -21,10 +21,10 @@ class ClientClass {
 
     FetchAll: express.Handler = async (req, res, next) => {
         try {
-            await Client
+            await Banker
                 .find()
-                .then((clients) => res.status(200)
-                .json(clients));
+                .then((bankers) => res.status(200)
+                .json(bankers));
         } catch (error) {
             res.status(500).json(res.statusMessage);
             next(error);
@@ -32,8 +32,6 @@ class ClientClass {
     };
 };
 
-export const CLIENT: ClientClass = new ClientClass();
-
-
+export const BANK: BankerClass = new BankerClass();
 
 

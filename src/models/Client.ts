@@ -1,6 +1,7 @@
-import { Entity, Column, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany, ManyToMany } from "typeorm";
 import { Person } from "./Person";
 import { Transaction } from "./Transactions";
+import { Banker } from "./Banker";
 
 @Entity({name: "clients"})
 export class Client extends Person {    
@@ -14,9 +15,9 @@ export class Client extends Person {
     };
     @Column({type: "simple-array", 
         default: []}) family_members: string[];
-
     @OneToMany(() => Transaction, 
-    (trans) => trans.client) trans: Transaction[]
+    (trans) => trans.client) trans: Transaction[];
+    @ManyToMany(() => Banker) bankers: Banker[];
 };
 
 

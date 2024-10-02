@@ -1,8 +1,9 @@
 import express from "express";
-import { IndexHome } from "../controllers/ClientCon";
+import { CLIENT } from "../controllers/ClientCon";
 
 export const clientRt: express.Router = express.Router();
-    clientRt.get("/", IndexHome);
+    clientRt.post("/", CLIENT.Create);
+    clientRt.get("/", CLIENT.FetchAll);
 
 
 
