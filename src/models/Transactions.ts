@@ -15,7 +15,7 @@ export class Transaction extends BaseEntity {
         enum: TransType }) type: string;
     @Column({type: "numeric"}) amount: number;
 
-    @ManyToOne(() => Client, (client) => client.trans)
+    @ManyToOne(() => Client, (client) => client.transactions)
     @JoinColumn({name: "client_id"}) client: Client;
 };
 

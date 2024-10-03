@@ -11,8 +11,8 @@
     "pro": "tsc && node dist/index.js",
     "start": "node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["TypeScript", "Express.js", "PostgreSQL", "TypeORM", "Active Record"],
+  "author": "Craig Johnson",
   "license": "ISC",
   "description": "",
   "dependencies": {

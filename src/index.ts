@@ -6,6 +6,7 @@ import logger from "morgan";
 import { ERR } from "./middleware/midError";
 import { clientRt } from "./routes/ClientRt";
 import { bankRt } from "./routes/BankerRt";
+import { transRt } from "./routes/TransRt";
 import { dBase } from "./db/database";
 
 (async () => {
@@ -33,6 +34,7 @@ import { dBase } from "./db/database";
     app.use(logger("dev"));
     app.use("/api/client", clientRt);
     app.use("/api/bank", bankRt);
+    app.use("/api/client", transRt);
     app.use(ERR.notFound);
     app.use(ERR.errHandler);
     const port = process.env.PORT || 9000;
